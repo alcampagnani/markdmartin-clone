@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react";
+import { Send } from "lucide-react";
 
 export function ConsultationForm() {
   const [formData, setFormData] = useState({
@@ -11,7 +12,9 @@ export function ConsultationForm() {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -22,30 +25,44 @@ export function ConsultationForm() {
   };
 
   const inputClasses =
-    "w-full bg-white border border-[#d2d2d2] rounded-[6px] p-3 mb-4 focus:border-[#15779b] focus:outline-none";
+    "w-full bg-white/10 border border-white/20 text-white placeholder-white/50 rounded-none p-3.5 mb-4 focus:border-[#c5a55a] focus:outline-none transition-colors";
 
   return (
-    <section className="bg-[#2c3540] py-20">
-      <div className="max-w-[1200px] mx-auto px-6">
-        <h2 className="text-white text-3xl font-bold uppercase mb-3">
-          REQUEST A FREE CONSULTATION
-        </h2>
-        <p className="text-[#d2d2d2] mb-10">
-          Fill out the form below to receive a free and confidential initial
-          consultation.
-        </p>
+    <section id="contact" className="relative overflow-hidden">
+      {/* Background image with overlay */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('/images/Mark-Supreme-Court-walking-edited-1-683x1024.jpg')",
+        }}
+      />
+      <div className="absolute inset-0 bg-[#2c3540]/92" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-          {/* Left side - Image */}
+      <div className="relative z-10 mx-auto max-w-[1200px] px-6 py-20 md:py-28">
+        <div className="grid items-start gap-12 md:grid-cols-2">
+          {/* Left - Text content */}
           <div>
+            <p className="mb-2 text-sm font-semibold uppercase tracking-[3px] text-[#c5a55a]">
+              Get In Touch
+            </p>
+            <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
+              Request a Free Consultation
+            </h2>
+            <div className="mb-6 h-[3px] w-16 bg-[#c5a55a]" />
+            <p className="mb-10 text-base leading-relaxed text-white/70">
+              Fill out the form to receive a free and confidential initial
+              consultation. Our team will get back to you within 24 hours.
+            </p>
+
             <img
               src="/images/Mark-Supreme-Court-walking-edited-1-683x1024.jpg"
               alt="Mark at the Supreme Court"
-              className="w-full max-h-[500px] object-cover rounded-lg"
+              className="hidden w-full max-w-[400px] shadow-2xl md:block"
             />
           </div>
 
-          {/* Right side - Form */}
+          {/* Right - Form */}
           <form onSubmit={handleSubmit}>
             <input
               type="text"
@@ -108,13 +125,15 @@ export function ConsultationForm() {
               <option value="Business Law">Business Law</option>
               <option value="Contracts">Contracts</option>
               <option value="Immigration">Immigration</option>
-              <option value="Intellectual Property">Intellectual Property</option>
+              <option value="Intellectual Property">
+                Intellectual Property
+              </option>
               <option value="Other">Other</option>
             </select>
 
             <textarea
               name="message"
-              placeholder="Message"
+              placeholder="Tell us about your case..."
               rows={4}
               value={formData.message}
               onChange={handleChange}
@@ -123,9 +142,10 @@ export function ConsultationForm() {
 
             <button
               type="submit"
-              className="w-full bg-[#15779b] text-white font-semibold rounded py-[14px] hover:bg-[#11607d] transition-colors"
+              className="flex w-full items-center justify-center gap-2 bg-[#c5a55a] py-4 text-sm font-bold uppercase tracking-[2px] text-[#1a2530] transition-all hover:bg-[#d4b56a]"
             >
-              SEND MESSAGE
+              <Send className="h-4 w-4" />
+              Send Message
             </button>
           </form>
         </div>

@@ -1,51 +1,51 @@
-import { useState, useEffect, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { useState, useEffect, useCallback } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
     quote:
-      'I was introduced to Mark Martin and was extremely satisfied with his professional approach and guidance',
-    author: 'L.T.',
+      "I was introduced to Mark Martin and was extremely satisfied with his professional approach and guidance",
+    author: "L.T.",
   },
   {
     quote:
-      'Martin & Oliveira offered such a great service...we recommend Martin & Oliveira Law Firm.',
-    author: 'J.S.',
+      "Martin & Oliveira offered such a great service...we recommend Martin & Oliveira Law Firm.",
+    author: "J.S.",
   },
   {
     quote:
-      'Extremely professional and really takes your case...helped with my case under the Hague convention for child abduction.',
-    author: 'M.S.',
+      "Extremely professional and really takes your case...helped with my case under the Hague convention for child abduction.",
+    author: "M.S.",
   },
   {
-    quote: 'In less than 3 months, Dr Mark solved the problem',
-    author: 'Cris Guerra',
+    quote: "In less than 3 months, Dr Mark solved the problem",
+    author: "Cris Guerra",
   },
   {
-    quote: 'Corrected the date of my American divorce in Brazil',
-    author: 'Rafael Barriola',
-  },
-  {
-    quote:
-      'Impeccable work. My son and I are at the beginning of a new life',
-    author: 'Renata Barleben',
+    quote: "Corrected the date of my American divorce in Brazil",
+    author: "Rafael Barriola",
   },
   {
     quote:
-      'Provided me with a high quality and highly professional service to rectify my Brazilian marriage certificate',
-    author: 'Gracielle Graça',
+      "Impeccable work. My son and I are at the beginning of a new life",
+    author: "Renata Barleben",
   },
   {
-    quote: 'Professionalism, attention and frequent communication',
-    author: 'Natalia Silva Harwood',
+    quote:
+      "Provided me with a high quality and highly professional service to rectify my Brazilian marriage certificate",
+    author: "Gracielle Graça",
   },
   {
-    quote: 'Excellent professionals...great knowledge',
-    author: 'Flávio De Souza Morgado',
+    quote: "Professionalism, attention and frequent communication",
+    author: "Natalia Silva Harwood",
   },
   {
-    quote: 'Competence, punctuality, seriousness, honesty, consideration',
-    author: 'Livia Amaral',
+    quote: "Excellent professionals...great knowledge",
+    author: "Flávio De Souza Morgado",
+  },
+  {
+    quote: "Competence, punctuality, seriousness, honesty, consideration",
+    author: "Livia Amaral",
   },
 ];
 
@@ -79,12 +79,12 @@ export function Testimonials() {
   }, [goNext]);
 
   return (
-    <section className="bg-white py-20">
-      <div className="max-w-[1200px] mx-auto px-4">
-        <h2
-          className="text-center text-3xl md:text-4xl font-bold mb-16 uppercase tracking-[2px]"
-          style={{ color: '#2c3540' }}
-        >
+    <section className="bg-[#2c3540] py-20 md:py-28">
+      <div className="mx-auto max-w-[1200px] px-4">
+        <p className="mb-2 text-center text-sm font-semibold uppercase tracking-[3px] text-[#c5a55a]">
+          What Our Clients Say
+        </p>
+        <h2 className="mb-16 text-center text-3xl font-bold uppercase tracking-[2px] text-white md:text-4xl">
           Testimonials
         </h2>
 
@@ -92,59 +92,55 @@ export function Testimonials() {
           {/* Left Arrow */}
           <button
             onClick={goPrev}
-            className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full border border-gray-300 flex items-center justify-center hover:border-gray-500 transition-colors"
+            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/30 transition-all hover:border-[#c5a55a] hover:bg-[#c5a55a]/10"
             aria-label="Previous testimonial"
           >
-            <ChevronLeft className="w-5 h-5 text-gray-500" />
+            <ChevronLeft className="h-5 w-5 text-white" />
           </button>
 
           {/* Testimonial Content */}
-          <div className="flex flex-col items-center max-w-[700px] min-h-[200px] justify-center">
-            <Quote
-              className="w-10 h-10 mb-6"
-              style={{ color: '#15779b', opacity: 0.3 }}
-            />
+          <div className="flex min-h-[200px] max-w-[700px] flex-col items-center justify-center">
+            {/* Quote marks */}
+            <div className="mb-6 text-6xl leading-none text-[#c5a55a]/40">&ldquo;</div>
 
             <div
               className="transition-opacity duration-300"
               style={{ opacity: isTransitioning ? 0 : 1 }}
             >
-              <p
-                className="text-center italic text-xl leading-relaxed mb-6"
-                style={{ color: '#2b2b2b' }}
-              >
-                &ldquo;{testimonials[currentIndex].quote}&rdquo;
+              <p className="mb-6 text-center text-xl leading-relaxed italic text-white/90 md:text-2xl">
+                {testimonials[currentIndex].quote}
               </p>
-              <p
-                className="text-center font-bold"
-                style={{ color: '#757575' }}
-              >
-                &mdash; {testimonials[currentIndex].author}
-              </p>
+              <div className="flex items-center justify-center gap-3">
+                <div className="h-px w-8 bg-[#c5a55a]" />
+                <p className="text-sm font-bold uppercase tracking-wider text-[#c5a55a]">
+                  {testimonials[currentIndex].author}
+                </p>
+                <div className="h-px w-8 bg-[#c5a55a]" />
+              </div>
             </div>
           </div>
 
           {/* Right Arrow */}
           <button
             onClick={goNext}
-            className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full border border-gray-300 flex items-center justify-center hover:border-gray-500 transition-colors"
+            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/30 transition-all hover:border-[#c5a55a] hover:bg-[#c5a55a]/10"
             aria-label="Next testimonial"
           >
-            <ChevronRight className="w-5 h-5 text-gray-500" />
+            <ChevronRight className="h-5 w-5 text-white" />
           </button>
         </div>
 
         {/* Dots */}
-        <div className="flex items-center justify-center gap-2 mt-8">
+        <div className="mt-10 flex items-center justify-center gap-2">
           {testimonials.map((_, index) => (
             <button
               key={index}
               onClick={() => goTo(index)}
-              className="w-3 h-3 rounded-full transition-colors duration-300"
-              style={{
-                backgroundColor:
-                  index === currentIndex ? '#15779b' : '#d2d2d2',
-              }}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                index === currentIndex
+                  ? "w-8 bg-[#c5a55a]"
+                  : "w-2 bg-white/30 hover:bg-white/50"
+              }`}
               aria-label={`Go to testimonial ${index + 1}`}
             />
           ))}
