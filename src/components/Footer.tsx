@@ -8,11 +8,10 @@ const socialLinks = [
   },
   {
     href: "https://twitter.com/martin_lawfirm",
-    label: "X (Twitter)",
+    label: "Twitter",
     svg: (
       <>
-        <path d="M4 4l11.733 16h4.267l-11.733-16z" />
-        <path d="M4 20l6.768-6.768m2.46-2.46l6.772-6.772" />
+        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
       </>
     ),
   },
@@ -32,8 +31,8 @@ const socialLinks = [
     label: "YouTube",
     svg: (
       <>
-        <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
-        <path d="m10 15 5-3-5-3z" />
+        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
       </>
     ),
   },
@@ -41,21 +40,24 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#1a1e24]">
-      {/* Office image banner */}
-      <div className="mx-auto max-w-[1200px] px-6 pt-12">
-        <a href="https://www.martinlaw.com.br" target="_blank" rel="noopener noreferrer">
-          <img
-            src="/images/KZGqJfOASrp_9bKtjSkggMXxL0AIqLMf5A-e1760478433615-1024x701.png"
-            alt="Martin Law Office"
-            className="mx-auto w-full max-w-[700px] opacity-80 transition-opacity hover:opacity-100"
-          />
-        </a>
-      </div>
+    <footer className="bg-[#2c3540]">
+      <div className="mx-auto max-w-[1200px] px-6 py-12">
+        {/* "THE OFFICE" label */}
+        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[4px] text-[#c5a55a]">
+          The Office
+        </p>
 
-      {/* Social + Copyright */}
-      <div className="mx-auto max-w-[1200px] px-6 py-8">
-        <div className="mb-6 flex items-center justify-center gap-4">
+        {/* Logo */}
+        <div className="mb-8 flex justify-center">
+          <img
+            src="/images/Martin-Law-Gold-no-bg-horizontal.png"
+            alt="Martin Advogados"
+            style={{ width: '200px' }}
+          />
+        </div>
+
+        {/* Social icons */}
+        <div className="mb-8 flex items-center justify-center gap-4">
           {socialLinks.map(({ href, label, svg }) => (
             <a
               key={label}
@@ -63,12 +65,12 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/50 transition-all hover:border-[#c5a55a] hover:text-[#c5a55a]"
+              className="text-white/70 transition-colors hover:text-[#c5a55a]"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
+                width="18"
+                height="18"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -82,15 +84,17 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="h-px w-full bg-white/10" />
+        {/* Separator */}
+        <div className="mx-auto mb-6 h-px w-full max-w-[600px] bg-white/15" />
 
-        <p className="mt-6 text-center text-xs uppercase tracking-wider text-white/40">
+        {/* Copyright */}
+        <p className="text-center text-xs uppercase tracking-wider text-white/50">
           &copy; All Rights Reserved. Send your e-mail to:{" "}
           <a
-            href="mailto:contact@martinlaw.com.br"
-            className="text-[#c5a55a]/70 transition-colors hover:text-[#c5a55a]"
+            href="mailto:info@markdmartin.com"
+            className="text-[#c5a55a] underline transition-colors hover:text-[#d4b56a]"
           >
-            contact@martinlaw.com.br
+            info@markdmartin.com
           </a>
         </p>
       </div>

@@ -23,35 +23,29 @@ const endorsements = [
 
 export function Endorsements() {
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="bg-[#2c3540] py-20">
       <div className="mx-auto max-w-[1200px] px-6">
-        <div className="mb-14 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-[3px] text-[#c5a55a]">
-            Trusted By
-          </p>
-          <h2 className="mb-4 text-3xl font-bold text-[#2c3540] md:text-4xl">
-            Endorsements & Referrals
-          </h2>
-          <div className="mx-auto h-[3px] w-16 bg-[#c5a55a]" />
-        </div>
+        <h2 className="mb-16 text-center text-3xl font-bold uppercase tracking-[3px] text-[#c5a55a] md:text-4xl">
+          Endorsements and Referrals
+        </h2>
 
-        <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-10 lg:grid-cols-4">
           {endorsements.map((item, index) => (
             <div
               key={index}
-              className="group flex flex-col items-center border border-gray-100 bg-[#fafafa] p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:border-[#c5a55a]/30 hover:shadow-lg"
+              className="flex flex-col items-center text-center"
             >
-              <div className="mb-5 flex h-24 items-center justify-center">
+              <div className="mb-5 flex h-[120px] items-center justify-center">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="h-20 object-contain grayscale transition-all group-hover:grayscale-0"
+                  className="max-h-[120px] object-contain"
                 />
               </div>
-              <h3 className="mb-2 text-sm font-bold text-[#2c3540]">
+              <h3 className="mb-2 text-sm font-bold uppercase tracking-[2px] text-white">
                 {item.title}
               </h3>
-              <p className="text-xs leading-relaxed text-[#757575]">
+              <p className="text-sm leading-relaxed text-white/70">
                 {item.text}
               </p>
             </div>

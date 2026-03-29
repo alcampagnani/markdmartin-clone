@@ -1,5 +1,4 @@
 import {
-  ArrowRight,
   Scale,
   Building,
   Home,
@@ -114,73 +113,52 @@ const practiceAreas: PracticeAreaCard[] = [
 
 export function PracticeAreas() {
   return (
-    <section className="bg-[#f8f8f8] py-20 md:py-28">
+    <section className="relative bg-[#c9a84c] py-20 md:py-28">
       <div className="mx-auto max-w-[1200px] px-6">
-        <div className="mb-14 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-[3px] text-[#c5a55a]">
-            What We Do
-          </p>
-          <h2 className="mb-4 text-3xl font-bold text-[#2c3540] md:text-4xl">
-            Our Expertise
-          </h2>
-          <div className="mx-auto h-[3px] w-16 bg-[#c5a55a]" />
-        </div>
-
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {practiceAreas.map((area) => {
             const Icon = area.icon;
             return (
               <div
                 key={area.title}
-                className="group relative overflow-hidden border border-gray-100 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="group relative overflow-hidden bg-[#2c3540]/95 p-7 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
               >
-                {/* Top accent line */}
-                <div className="absolute left-0 top-0 h-1 w-0 bg-[#15779b] transition-all duration-300 group-hover:w-full" />
-
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#15779b]/10 transition-colors group-hover:bg-[#15779b]">
-                  <Icon className="h-6 w-6 text-[#15779b] transition-colors group-hover:text-white" />
+                <div className="mb-5 flex items-center justify-center">
+                  <Icon className="h-10 w-10 text-white" strokeWidth={1.5} />
                 </div>
 
-                <h3 className="mb-3 text-lg font-bold text-[#2c3540]">
+                <h3 className="mb-4 text-center text-sm font-bold uppercase tracking-[2px] text-white">
                   {area.title}
                 </h3>
 
                 {area.description && (
-                  <p className="mb-5 text-sm leading-relaxed text-[#757575]">
+                  <p className="mb-5 text-center text-sm leading-relaxed text-gray-300">
                     {area.description}
                   </p>
                 )}
 
                 {area.items && (
-                  <ul className="mb-5 space-y-1.5 text-sm text-[#757575]">
+                  <ul className="mb-5 space-y-1.5 text-sm text-gray-300">
                     {area.items.map((item) => (
                       <li key={item} className="flex items-start gap-2">
-                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#c5a55a]" />
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#c5a55a]" />
                         {item}
                       </li>
                     ))}
                   </ul>
                 )}
 
-                <a
-                  href={area.link}
-                  className="inline-flex items-center gap-1 text-sm font-semibold text-[#15779b] transition-all hover:gap-2"
-                >
-                  Read more
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </a>
+                <div className="mt-auto pt-2 text-center">
+                  <a
+                    href={area.link}
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-[#c5a55a] transition-all hover:gap-2 hover:text-[#d4b76a]"
+                  >
+                    Read more &rarr;
+                  </a>
+                </div>
               </div>
             );
           })}
-        </div>
-
-        <div className="mt-14 text-center">
-          <a
-            href="/services/"
-            className="inline-block border-2 border-[#15779b] px-10 py-3 text-sm font-bold uppercase tracking-[1.5px] text-[#15779b] transition-all hover:bg-[#15779b] hover:text-white"
-          >
-            View All Services
-          </a>
         </div>
       </div>
     </section>

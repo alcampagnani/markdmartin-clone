@@ -1,6 +1,5 @@
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
-import { AttorneyProfile } from './components/AttorneyProfile'
 import { PracticeAreas } from './components/PracticeAreas'
 import { Endorsements } from './components/Endorsements'
 import { Testimonials } from './components/Testimonials'
@@ -13,7 +12,6 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <AttorneyProfile />
         <PracticeAreas />
         <Endorsements />
         <Testimonials />

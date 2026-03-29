@@ -79,71 +79,43 @@ export function Testimonials() {
   }, [goNext]);
 
   return (
-    <section className="bg-[#2c3540] py-20 md:py-28">
-      <div className="mx-auto max-w-[1200px] px-4">
-        <p className="mb-2 text-center text-sm font-semibold uppercase tracking-[3px] text-[#c5a55a]">
-          What Our Clients Say
-        </p>
-        <h2 className="mb-16 text-center text-3xl font-bold uppercase tracking-[2px] text-white md:text-4xl">
+    <section className="bg-white py-20 md:py-28">
+      <div className="mx-auto max-w-[800px] px-4">
+        <h2 className="mb-4 text-center text-3xl font-bold uppercase tracking-[2px] text-[#2c3540] md:text-4xl">
           Testimonials
         </h2>
+        <div className="mx-auto mb-12 h-[2px] w-[60px] bg-[#c5a55a]" />
 
         <div className="flex items-center justify-center gap-4 md:gap-8">
-          {/* Left Arrow */}
           <button
             onClick={goPrev}
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/30 transition-all hover:border-[#c5a55a] hover:bg-[#c5a55a]/10"
+            className="flex h-10 w-10 shrink-0 items-center justify-center transition-colors hover:text-[#c5a55a]"
             aria-label="Previous testimonial"
           >
-            <ChevronLeft className="h-5 w-5 text-white" />
+            <ChevronLeft className="h-6 w-6 text-[#2c3540]" />
           </button>
 
-          {/* Testimonial Content */}
-          <div className="flex min-h-[200px] max-w-[700px] flex-col items-center justify-center">
-            {/* Quote marks */}
-            <div className="mb-6 text-6xl leading-none text-[#c5a55a]/40">&ldquo;</div>
-
+          <div className="flex min-h-[160px] max-w-[600px] flex-col items-center justify-center">
             <div
               className="transition-opacity duration-300"
               style={{ opacity: isTransitioning ? 0 : 1 }}
             >
-              <p className="mb-6 text-center text-xl leading-relaxed italic text-white/90 md:text-2xl">
-                {testimonials[currentIndex].quote}
+              <p className="mb-6 text-center text-lg leading-relaxed italic text-[#2c3540] md:text-xl">
+                &ldquo;{testimonials[currentIndex].quote}&rdquo;
               </p>
-              <div className="flex items-center justify-center gap-3">
-                <div className="h-px w-8 bg-[#c5a55a]" />
-                <p className="text-sm font-bold uppercase tracking-wider text-[#c5a55a]">
-                  {testimonials[currentIndex].author}
-                </p>
-                <div className="h-px w-8 bg-[#c5a55a]" />
-              </div>
+              <p className="text-center text-sm text-[#2c3540]/70">
+                &mdash; {testimonials[currentIndex].author}
+              </p>
             </div>
           </div>
 
-          {/* Right Arrow */}
           <button
             onClick={goNext}
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/30 transition-all hover:border-[#c5a55a] hover:bg-[#c5a55a]/10"
+            className="flex h-10 w-10 shrink-0 items-center justify-center transition-colors hover:text-[#c5a55a]"
             aria-label="Next testimonial"
           >
-            <ChevronRight className="h-5 w-5 text-white" />
+            <ChevronRight className="h-6 w-6 text-[#2c3540]" />
           </button>
-        </div>
-
-        {/* Dots */}
-        <div className="mt-10 flex items-center justify-center gap-2">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goTo(index)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                index === currentIndex
-                  ? "w-8 bg-[#c5a55a]"
-                  : "w-2 bg-white/30 hover:bg-white/50"
-              }`}
-              aria-label={`Go to testimonial ${index + 1}`}
-            />
-          ))}
         </div>
       </div>
     </section>
